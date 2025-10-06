@@ -1,0 +1,16 @@
+{
+  "name": "templater",
+  "description": "An advancement of the previous template repository",
+  "version": "0.1.0",
+  "maintainers": [
+    {
+      "name": "Igor Padoim",
+      "email": "igorpadoim@gmail.com",
+      "web": "https://nereare.com/"
+    }
+  ],
+  "bugs": {
+    "web": "https://github.com/Nereare/templater/issues"
+  },
+  "license": "WTFPL"
+}
