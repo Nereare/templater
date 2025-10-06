@@ -15,16 +15,18 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Remove Ruby Lock
+      run: |
+        bundle config set frozen false
+
     - name: Set up Ruby 3.2
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
         bundler-cache: true
-
-    - name: Remove Ruby Lock
-      run: |
-        bundle config set frozen false
 
     - name: Publish to GPR
       run: |
