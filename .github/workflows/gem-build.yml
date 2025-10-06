@@ -22,10 +22,6 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
 
-    - name: Install Dependencies
-      run: |
-        bundle
-
     - name: Remove Ruby Lock
       run: |
         bundle config set frozen false
