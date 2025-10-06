@@ -3,6 +3,9 @@ PATH
   specs:
     templater (0.1.0)
       irb (~> 1.15, >= 1.15.2)
+      pastel (~> 0.8)
+      tty-exit (~> 0.1)
+      tty-option (~> 0.3)
       tty-prompt (~> 0.23)
 
 GEM
@@ -48,6 +51,8 @@ GEM
     tsort (0.2.0)
     tty-color (0.6.0)
     tty-cursor (0.7.1)
+    tty-exit (0.1.0)
+    tty-option (0.3.0)
     tty-prompt (0.23.1)
       pastel (~> 0.8)
       tty-reader (~> 0.8)
@@ -67,6 +72,9 @@ DEPENDENCIES
   rake (~> 13.3)
   rspec (~> 3.13)
   templater!
+
+RUBY VERSION
+   ruby 3.4.4p34
 
 BUNDLED WITH
    2.7.2

@@ -1,6 +1,50 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative "../lib"
+require 'bundler/setup'
+require 'templater'
 
-puts 'Hello, world!'
+require 'tty-exit'
+require 'tty-option'
+require 'tty-prompt'
+
+module Templater
+  class Templater
+    include TTY::Exit
+    include TTY::Option
+
+    flag :version do
+      short '-v'
+      long '--version'
+      desc 'The version of the current installation'
+    end
+
+    flag :help do
+      short '-h'
+      long '--help'
+      desc 'Print help text'
+    end
+
+    usage do
+      header 'Create a series of metafiles to begin a new project'
+      footer 'Available under the WTFPL by Igor Padoim.'
+    end
+
+    def run
+      if params.errors.any?
+        exit_with(:usage_error, params.errors.summary)
+      elsif params[:version]
+        # Templater::Actions.version
+        puts "Version 0.0.1"
+      elsif params[:help]
+        print help
+      else
+        pp params.to_h
+      end
+    end
+  end
+end
+
+cmd = Templater::Templater.new
+cmd.parse(ARGV)
+cmd.run

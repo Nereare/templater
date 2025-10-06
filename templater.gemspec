@@ -13,7 +13,6 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '~> 3.2'
 
-  spec.metadata['homepage_uri']      = spec.homepage
   spec.metadata['source_code_uri']   = spec.homepage
   spec.metadata['bug_tracker_uri']   = 'https://github.com/Nereare/templater/issues'
   spec.metadata['changelog_uri']     = 'https://github.com/Nereare/templater/blob/master/CHANGELOG.md'
@@ -31,6 +30,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'irb', '~> 1.15', '>= 1.15.2'
+  spec.add_dependency 'pastel', '~> 0.8'
+  spec.add_dependency 'tty-exit', '~> 0.1'
+  spec.add_dependency 'tty-option', '~> 0.3'
   spec.add_dependency 'tty-prompt', '~> 0.23'
 
   spec.add_development_dependency 'rake', '~> 13.3'
