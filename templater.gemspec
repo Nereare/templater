@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+require_relative 'lib/templater/meta'
+
 Gem::Specification.new do |spec|
-  spec.name        = 'templater'
-  spec.version     = '0.1.0'
-  spec.license     = 'WTFPL'
-  spec.author      = 'Igor Padoim'
-  spec.email       = 'igorpadoim@gmail.com'
-  spec.summary     = 'An advancement of the previous template repository.'
+  spec.name        = Templater::NAME
+  spec.version     = Templater::VERSION
+  spec.license     = Templater::LICENSE
+  spec.author      = Templater::AUTHOR
+  spec.email       = Templater::AUTHOR_EMAIL
+  spec.summary     = Templater::DESCRIPTION
   spec.homepage    = 'https://github.com/Nereare/templater'
 
   spec.required_ruby_version = '~> 3.2'
