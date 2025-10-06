@@ -1,8 +1,12 @@
 # Templater
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/Nereare/templater)](https://github.com/Nereare/templater)
-[![License](https://img.shields.io/github/license/Nereare/templater.svg)](LICENSE.md)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE-OF-CONDUCT.md)
+[![GitHub Version](https://img.shields.io/github/package-json/v/Nereare/templater?logo=semver&logoColor=ffffff&label=Version)](https://github.com/Nereare/templater)
+[![GitHub License](https://img.shields.io/github/license/Nereare/templater?logo=unlicense&logoColor=ffffff&label=License)](LICENSE.md)
+[![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-2.1-5e0d73?logo=contributorcovenant&logoColor=ffffff)](CODE-OF-CONDUCT.md)
+
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Nereare/templater/gem-build.yml?logo=githubactions&logoColor=ffffff&label=Build)](https://github.com/Nereare/templater/actions/workflows/gem-build.yml)
+[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/Nereare/templater?logo=librariesdotio&logoColor=ffffff&label=Libraries.io)](https://libraries.io/github/Nereare/templater)
+[![OSSF Score](https://img.shields.io/ossf-scorecard/github.com/Nereare/templater?logo=opensourceinitiative&logoColor=ffffff&label=OSSF%20Score)](https://github.com/Nereare/templater/security/code-scanning)
 
 An advancement of the previous template repository.
 
