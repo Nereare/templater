@@ -24,7 +24,11 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        bundle install
+        bundle
+
+    - name: Remove Ruby Lock
+      run: |
+        bundle config set frozen false
 
     - name: Publish to GPR
       run: |
