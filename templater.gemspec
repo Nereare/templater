@@ -6,19 +6,16 @@ Gem::Specification.new do |spec|
   spec.license     = 'WTFPL'
   spec.author      = 'Igor Padoim'
   spec.email       = 'igorpadoim@gmail.com'
-  spec.summary     = 'TODO: Write a short summary, because RubyGems requires one.'
+  spec.summary     = 'An advancement of the previous template repository.'
   spec.homepage    = 'https://github.com/Nereare/templater'
 
   spec.required_ruby_version = '~> 3.2'
 
-  spec.metadata['bug_tracker_uri']   = ''
-  spec.metadata['changelog_uri']     = ''
-  spec.metadata['documentation_uri'] = ''
   spec.metadata['homepage_uri']      = spec.homepage
-  spec.metadata['mailing_list_uri']  = ''
   spec.metadata['source_code_uri']   = spec.homepage
-  spec.metadata['wiki_uri']          = ''
-  spec.metadata['funding_uri']       = ''
+  spec.metadata['bug_tracker_uri']   = 'https://github.com/Nereare/templater/issues'
+  spec.metadata['changelog_uri']     = 'https://github.com/Nereare/templater/blob/master/CHANGELOG.md'
+  # TODO: spec.metadata['documentation_uri'] = ''
 
   gemspec = File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
