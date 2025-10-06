@@ -18,10 +18,6 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Remove Ruby Lock
-      run: |
-        bundle config set frozen false
-
     - name: Set up Ruby 3.2
       uses: ruby/setup-ruby@v1
       with:
