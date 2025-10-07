@@ -2,13 +2,13 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'templater'
+require 'repo_templater'
 
 require 'tty-exit'
 require 'tty-option'
 require 'tty-prompt'
 
-module Templater
+module RepoTemplater
   class Templater
     include TTY::Exit
     include TTY::Option
@@ -33,18 +33,16 @@ module Templater
     def run
       if params.errors.any?
         exit_with(:usage_error, params.errors.summary)
-      elsif params[:version]
-        # Templater::Actions.version
-        puts "Version 0.0.1"
-      elsif params[:help]
-        print help
       else
-        pp params.to_h
+        p = false
+        p = 'version' if params[:version]
+        p = 'help' if params[:help]
+        puts "Running with param: #{p}" if p
       end
     end
   end
 end
 
-cmd = Templater::Templater.new
+cmd = RepoTemplater::Templater.new
 cmd.parse(ARGV)
 cmd.run

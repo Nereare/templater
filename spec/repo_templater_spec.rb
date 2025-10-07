@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Templater do
+RSpec.describe RepoTemplater do
   it "has a version number" do
-    expect(Templater::VERSION).not_to be nil
+    expect(RepoTemplater::VERSION).not_to be nil
   end
 
   it "does something useful" do

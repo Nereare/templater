@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'lib/templater/meta'
+require_relative 'lib/repo_templater/meta'
 
 Gem::Specification.new do |spec|
-  spec.name        = Templater::NAME
-  spec.version     = Templater::VERSION
-  spec.license     = Templater::LICENSE
-  spec.author      = Templater::AUTHOR
-  spec.email       = Templater::AUTHOR_EMAIL
-  spec.summary     = Templater::DESCRIPTION
+  spec.name        = RepoTemplater::NAME
+  spec.version     = RepoTemplater::VERSION
+  spec.license     = RepoTemplater::LICENSE
+  spec.author      = RepoTemplater::AUTHOR
+  spec.email       = RepoTemplater::AUTHOR_EMAIL
+  spec.summary     = RepoTemplater::DESCRIPTION
   spec.homepage    = 'https://github.com/Nereare/templater'
 
   spec.required_ruby_version = '~> 3.2'
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
     end
   end
   spec.bindir        = 'bin'
-  spec.executables   = 'templater'
+  spec.executables   = 'repo_templater'
   spec.require_paths = ['lib']
 
   spec.add_dependency 'irb', '~> 1.15', '>= 1.15.2'

@@ -1,4 +1,4 @@
-# Templater
+# Repository Templater
 
 [![GitHub Version](https://img.shields.io/github/package-json/v/Nereare/templater?logo=semver&logoColor=ffffff&label=Version)](https://github.com/Nereare/templater)
 [![GitHub License](https://img.shields.io/github/license/Nereare/templater?logo=unlicense&logoColor=ffffff&label=License)](LICENSE.md)

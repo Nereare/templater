@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'pastel'
-require_relative "templater/meta"
+require_relative "repo_templater/meta"
 
-module Templater
+module RepoTemplater
   class Actions
     def self.version
       # pastel = Pastel.new

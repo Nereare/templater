@@ -1,4 +1,4 @@
-# [Templater](https://github.com/Nereare/templater) Changelog
+# [Repository Templater](https://github.com/Nereare/templater) Changelog
 
 All notable changes to this project will be documented in this file.
 

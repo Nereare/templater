@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Templater
-  NAME         = "templater"
+module RepoTemplater
+  NAME         = "repo_templater"
   DESCRIPTION  = "An advancement of the previous template repository"
   VERSION      = "0.1.0"
   AUTHOR       = "Igor Padoim"
