@@ -10,62 +10,74 @@ require 'tty-option'
 require 'tty-prompt'
 
 module RepoTemplater
+  # Command line interface for this gem.
   class Templater
     include TTY::Exit
     include TTY::Option
 
+    # Define command line information flag
     flag :info do
       short '-i'
       long '--info'
       desc 'Show gem information'
     end
 
+    # Define command line version flag
     flag :version do
       short '-v'
       long '--version'
       desc 'Show the version of the current installation'
     end
 
+    # Define command line license flag
     flag :license do
       short '-l'
       long '--license'
       desc 'Show license information'
     end
 
+    # Define command line help flag
     flag :help do
       short '-h'
       long '--help'
       desc 'Print help text'
     end
 
+    # Set help text headers and footer
     usage do
       pastel = Pastel.new
-      header "#{pastel.cyan(RepoTemplater::NAME)}"
-      header "#{RepoTemplater::DESCRIPTION}"
+      header pastel.cyan(RepoTemplater::NAME).to_s
+      header RepoTemplater::DESCRIPTION.to_s
       footer "Available under the #{pastel.green(RepoTemplater::LICENSE)} by #{pastel.blue(RepoTemplater::AUTHOR)}."
     end
 
+    # Compile TTY::Option parameters into a single value
+    def compiled_params
+      p = false
+      p = 'info' if params[:info]
+      p = 'version' if params[:version]
+      p = 'license' if params[:license]
+      p = 'help' if params[:help]
+      p
+    end
+
+    # Compile actions based on compiled parameters
+    def run_actions
+      case compiled_params
+      when 'info' then RepoTemplater::Actions.info
+      when 'version' then puts RepoTemplater::VERSION
+      when 'license' then puts RepoTemplater::LICENSE
+      when 'help' then puts help
+      else RepoTemplater::Actions.run
+      end
+    end
+
+    # Run the command line interface
     def run
       if params.errors.any?
         exit_with(:usage_error, params.errors.summary)
       else
-        p = false
-        p = 'version' if params[:version]
-        p = 'license' if params[:license]
-        p = 'help' if params[:help]
-
-        case p
-        when 'info'
-          RepoTemplater::Actions.info
-        when 'version'
-          puts "#{RepoTemplater::VERSION}"
-        when 'license'
-          puts "#{RepoTemplater::LICENSE}"
-        when 'help'
-          puts help
-        else
-          RepoTemplater::Actions.run
-        end
+        run_actions
       end
     end
   end
