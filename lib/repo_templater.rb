@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'pastel'
-require_relative "repo_templater/meta"
+require_relative 'repo_templater/meta'
 
 module RepoTemplater
   class Actions
