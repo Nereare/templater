@@ -4,6 +4,7 @@
 require 'bundler/setup'
 require 'repo_templater'
 
+require 'pastel'
 require 'tty-exit'
 require 'tty-option'
 require 'tty-prompt'
@@ -13,10 +14,22 @@ module RepoTemplater
     include TTY::Exit
     include TTY::Option
 
+    flag :info do
+      short '-i'
+      long '--info'
+      desc 'Show gem information'
+    end
+
     flag :version do
       short '-v'
       long '--version'
-      desc 'The version of the current installation'
+      desc 'Show the version of the current installation'
+    end
+
+    flag :license do
+      short '-l'
+      long '--license'
+      desc 'Show license information'
     end
 
     flag :help do
@@ -26,8 +39,10 @@ module RepoTemplater
     end
 
     usage do
-      header 'Create a series of metafiles to begin a new project'
-      footer 'Available under the WTFPL by Igor Padoim.'
+      pastel = Pastel.new
+      header "#{pastel.cyan(RepoTemplater::NAME)}"
+      header "#{RepoTemplater::DESCRIPTION}"
+      footer "Available under the #{pastel.green(RepoTemplater::LICENSE)} by #{pastel.blue(RepoTemplater::AUTHOR)}."
     end
 
     def run
@@ -36,8 +51,21 @@ module RepoTemplater
       else
         p = false
         p = 'version' if params[:version]
+        p = 'license' if params[:license]
         p = 'help' if params[:help]
-        puts "Running with param: #{p}" if p
+
+        case p
+        when 'info'
+          RepoTemplater::Actions.info
+        when 'version'
+          puts "#{RepoTemplater::VERSION}"
+        when 'license'
+          puts "#{RepoTemplater::LICENSE}"
+        when 'help'
+          puts help
+        else
+          RepoTemplater::Actions.run
+        end
       end
     end
   end

@@ -3,7 +3,7 @@
 require_relative 'lib/repo_templater/meta'
 
 Gem::Specification.new do |spec|
-  spec.name        = RepoTemplater::NAME
+  spec.name        = RepoTemplater::SLUG
   spec.version     = RepoTemplater::VERSION
   spec.license     = RepoTemplater::LICENSE
   spec.author      = RepoTemplater::AUTHOR
