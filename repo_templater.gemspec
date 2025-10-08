@@ -36,5 +36,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'tty-prompt', '~> 0.23'
 
   spec.add_development_dependency 'rake', '~> 13.3'
+  spec.add_development_dependency 'rdoc', '~> 6.15'
   spec.add_development_dependency 'rspec', '~> 3.13'
+  spec.add_development_dependency 'rubocop', '~> 1.81', '>= 1.81.1'
+  spec.add_development_dependency 'rubocop-rake', '~> 0.7.1'
+  spec.add_development_dependency 'rubocop-rspec', '~> 3.7'
 end
