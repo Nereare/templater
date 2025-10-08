@@ -1,8 +1,9 @@
 # Repository Templater
 
-[![GitHub Version](https://img.shields.io/github/package-json/v/Nereare/templater?logo=semver&logoColor=ffffff&label=Version)](https://github.com/Nereare/templater)
+[![GitHub Version](https://img.shields.io/github/v/release/Nereare/templater?include_prereleases&logo=semver&logoColor=ffffff&label=Version)](https://github.com/Nereare/templater/releases)
 [![GitHub License](https://img.shields.io/github/license/Nereare/templater?logo=unlicense&logoColor=ffffff&label=License)](LICENSE.md)
 [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-2.1-5e0d73?logo=contributorcovenant&logoColor=ffffff)](CODE-OF-CONDUCT.md)
+[![Ruby Style Guide](https://img.shields.io/badge/Code%20Style-RuboCop-brightgree?logo=rubocop&logoColor=ffffff)](https://github.com/rubocop/rubocop)
 
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Nereare/templater/gem-build.yml?logo=githubactions&logoColor=ffffff&label=Build)](https://github.com/Nereare/templater/actions/workflows/gem-build.yml)
 [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/Nereare/templater?logo=librariesdotio&logoColor=ffffff&label=Libraries.io)](https://libraries.io/github/Nereare/templater)
