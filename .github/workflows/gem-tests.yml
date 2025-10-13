@@ -39,5 +39,11 @@ jobs:
       with:
         ruby-version: '3.2'
 
+    - name: Set Up Environment
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install
+
     - name: Run Tests
-      run: rspec
+      run: bundle exec rspec
