@@ -18,16 +18,19 @@ Gem::Specification.new do |spec|
   spec.metadata['changelog_uri']     = 'https://github.com/Nereare/templater/blob/master/CHANGELOG.md'
   # TODO: spec.metadata['documentation_uri'] = ''
 
-  gemspec = File.basename(__FILE__)
-  spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
-    ls.readlines("\x0", chomp: true).reject do |f|
-      (f == gemspec) ||
-        f.start_with?(*%w[bin/ Gemfile .gitignore .rspec spec/ config/])
-    end
-  end
+  spec.files = Dir[
+    'bin/repo_templater',
+    'config/locales/*.yml',
+    'lib/**/*.rb',
+    'sig/*',
+    'spec/*.rb',
+    '.ruby-version',
+    'LICENSE.md',
+    'Rakefile'
+  ]
   spec.bindir        = 'bin'
   spec.executables   = 'repo_templater'
-  spec.require_paths = ['lib']
+  spec.require_paths = %w[lib config]
 
   spec.add_dependency 'i18n', '~> 1.14', '>= 1.14.7'
   spec.add_dependency 'irb', '~> 1.15', '>= 1.15.2'
