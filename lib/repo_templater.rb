@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'open3'
 require 'pastel'
+require 'tty-prompt'
 require_relative 'repo_templater/meta'
 
 # Main module
@@ -16,9 +18,78 @@ module RepoTemplater
       puts "Available under the #{pastel.green(RepoTemplater::LICENSE)}."
     end
 
+    # Initialize the class
+    def initialize
+      # Gem elements
+      @pastel = Pastel.new
+      @prompt = TTY::Prompt.new
+      # Git data
+      @author_name = git_name
+      @author_email = git_email
+    end
+
+    # Get the language of the project
+    def lang
+      @lang = @prompt.select('What is the language of this project?') do |menu|
+        menu.choice name: 'English', value: 'en'
+        menu.choice name: 'Brasileiro', value: 'pt'
+        menu.default 'en'
+      end
+    end
+
+    # Get author metadata from the repository's author
+    def author_metadata
+      @author_name = @prompt.ask('What is your full name?') do |q|
+        q.required true
+        q.modify   :strip
+        q.default  @author_name unless @author_name.empty?
+      end
+      @author_email = @prompt.ask('What is your email address?') do |q|
+        q.required true
+        q.validate :email, 'Invalid email address'
+        q.default  @author_email unless @author_email.empty?
+      end
+    end
+
+    # Get repository informations
+    def self.repo_metadata
+      @name = @prompt.ask('What is the full capitalized name for this project?') do |q|
+        q.required true
+        q.modify   :strip
+      end
+      @slug = @prompt.ask('What is the slug (such as GitHub\'s name) for this project?') do |q|
+        q.required true
+        q.modify   :strip
+      end
+    end
+
     # Run the main functionality
-    def self.run
-      # TODO: implement main functionality
+    def run
+      lang # Get language
+      author_metadata # Get author metadata
+      repo_metadata # Get repository metadata
+    end
+
+    private
+
+    # Retrieve name from git config
+    def git_name
+      stdout, status = Open3.capture2('git config user.name')
+      if status.success? && !stdout.strip.empty?
+        stdout.strip
+      else
+        ''
+      end
+    end
+
+    # Retrieve email from git config
+    def git_email
+      stdout, status = Open3.capture2('git config user.email')
+      if status.success? && !stdout.strip.empty?
+        stdout.strip
+      else
+        ''
+      end
     end
   end
 end

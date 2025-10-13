@@ -1,0 +1,29 @@
+(A) 2025-10-11 README +en @md
+(A) 2025-10-11 README +pt-BR @md
+(D) 2025-10-11 LICENSE +en @md obs:special-section
+(D) 2025-10-11 LICENSE +pt-BR @md obs:special-section
+(A) 2025-10-11 CONTRIBUTING +en @md
+(A) 2025-10-11 CONTRIBUTING +pt-BR @md
+(C) 2025-10-11 CODE-OF-CONDUCT +en @md obs:special-section
+(C) 2025-10-11 CODE-OF-CONDUCT +pt-BR @md obs:special-section
+(A) 2025-10-11 CHANGELOG +en @md
+(A) 2025-10-11 CHANGELOG +pt-BR @md
+(A) 2025-10-11 package.json @json
+(B) 2025-10-11 .github/PULL_REQUEST_TEMPLATE +en @md
+(B) 2025-10-11 .github/PULL_REQUEST_TEMPLATE +pt-BR @md
+(B) 2025-10-11 .github/ISSUE_TEMPLATE/bug_report +en @md
+(B) 2025-10-11 .github/ISSUE_TEMPLATE/bug_report +pt-BR @md
+(B) 2025-10-11 .github/ISSUE_TEMPLATE/feature_request +en @md
+(B) 2025-10-11 .github/ISSUE_TEMPLATE/feature_request +pt-BR @md
+(B) 2025-10-11 .github/ISSUE_TEMPLATE/user_question +en @md
+(B) 2025-10-11 .github/ISSUE_TEMPLATE/user_question +pt-BR @md
+(E) 2025-10-11 SECURITY (https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository) +en @md obs:special-section
+(E) 2025-10-11 SECURITY +pt-BR @md obs:special-section
+(Z) 2025-10-11 SUPPORT +en @md obs:consider-implementation
+(Z) 2025-10-11 SUPPORT +pt-BR @md obs:consider-implementation
+(Z) 2025-10-11 CONTRIBUTORS +en @md obs:consider-implementation
+(Z) 2025-10-11 CONTRIBUTORS +pt-BR @md obs:consider-implementation
+(Z) 2025-10-11 ACKNOWLEDGMENTS +en @md obs:consider-implementation
+(Z) 2025-10-11 ACKNOWLEDGMENTS +pt-BR @md obs:consider-implementation
+(Z) 2025-10-11 CITATION (https://citation-file-format.github.io/) +en @md obs:consider-implementation
+(Z) 2025-10-11 CITATION +pt-BR @md obs:consider-implementation
