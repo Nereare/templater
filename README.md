@@ -5,7 +5,7 @@
 [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-2.1-5e0d73?logo=contributorcovenant&logoColor=ffffff)](CODE-OF-CONDUCT.md)
 [![Ruby Style Guide](https://img.shields.io/badge/Code%20Style-RuboCop-brightgree?logo=rubocop&logoColor=ffffff)](https://github.com/rubocop/rubocop)
 
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Nereare/templater/gem-build.yml?logo=githubactions&logoColor=ffffff&label=Build)](https://github.com/Nereare/templater/actions/workflows/gem-build.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Nereare/templater/gem-tests.yml?logo=githubactions&logoColor=ffffff&label=Build)](https://github.com/Nereare/templater/actions/workflows/gem-build.yml)
 [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/Nereare/templater?logo=librariesdotio&logoColor=ffffff&label=Libraries.io)](https://libraries.io/github/Nereare/templater)
 [![OpenSSF Score](https://img.shields.io/ossf-scorecard/github.com/Nereare/templater?logo=opensourceinitiative&logoColor=ffffff&label=OSSF%20Score)](https://github.com/Nereare/templater/security/code-scanning)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11268/badge)](https://www.bestpractices.dev/projects/11268)
