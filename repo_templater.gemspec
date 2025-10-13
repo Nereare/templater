@@ -22,13 +22,14 @@ Gem::Specification.new do |spec|
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
     ls.readlines("\x0", chomp: true).reject do |f|
       (f == gemspec) ||
-        f.start_with?(*%w[bin/ Gemfile .gitignore .rspec spec/])
+        f.start_with?(*%w[bin/ Gemfile .gitignore .rspec spec/ config/])
     end
   end
   spec.bindir        = 'bin'
   spec.executables   = 'repo_templater'
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'i18n', '~> 1.14', '>= 1.14.7'
   spec.add_dependency 'irb', '~> 1.15', '>= 1.15.2'
   spec.add_dependency 'pastel', '~> 0.8'
   spec.add_dependency 'tty-exit', '~> 0.1'

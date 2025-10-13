@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'i18n'
 require 'open3'
 require 'pastel'
 require 'tty-prompt'
@@ -26,38 +27,40 @@ module RepoTemplater
       # Git data
       @author_name = git_name
       @author_email = git_email
+      # Initialize I18n
+      I18n.load_path += Dir["#{File.expand_path('config/locales')}/*.yml"]
     end
 
     # Get the language of the project
     def lang
-      @lang = @prompt.select('What is the language of this project?') do |menu|
-        menu.choice name: 'English', value: 'en'
-        menu.choice name: 'Brasileiro', value: 'pt'
-        menu.default 'en'
+      I18n.locale = @prompt.select(I18n.t(:locale_question)) do |menu|
+        menu.choice name: 'English', value: :en
+        menu.choice name: 'Brasileiro', value: :pt
+        menu.default :en
       end
     end
 
     # Get author metadata from the repository's author
     def author_metadata
-      @author_name = @prompt.ask('What is your full name?') do |q|
+      @author_name = @prompt.ask(I18n.t('question.author.name')) do |q|
         q.required true
         q.modify   :strip
         q.default  @author_name unless @author_name.empty?
       end
-      @author_email = @prompt.ask('What is your email address?') do |q|
+      @author_email = @prompt.ask(I18n.t(:question_author_email)) do |q|
         q.required true
-        q.validate :email, 'Invalid email address'
+        q.validate :email, I18n.t(:error_invalid_email)
         q.default  @author_email unless @author_email.empty?
       end
     end
 
     # Get repository informations
     def self.repo_metadata
-      @name = @prompt.ask('What is the full capitalized name for this project?') do |q|
+      @name = @prompt.ask(I18n.t(:question_repo_name)) do |q|
         q.required true
         q.modify   :strip
       end
-      @slug = @prompt.ask('What is the slug (such as GitHub\'s name) for this project?') do |q|
+      @slug = @prompt.ask(I18n.t(:question_repo_slug)) do |q|
         q.required true
         q.modify   :strip
       end
