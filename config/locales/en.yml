@@ -1,11 +1,11 @@
 en:
   question:
+    locale: What is the language of this project?
     author:
       name: What is your full name?
       email: What is your email address?
-  locale_question: What is the language of this project?
-  question_author_name: What is your full name?
-  question_author_email: What is your email address?
-  question_repo_name: What is the full capitalized name for this project?
-  question_repo_slug: What is the slug (such as GitHub's name) for this project?
-  error_invalid_email: Invalid email address
+    repo:
+      name: What is the full capitalized name for this project?
+      slug: What is the slug (such as GitHub's name) for this project?
+  error:
+    invalid_email: Invalid email address

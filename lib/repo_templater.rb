@@ -28,15 +28,15 @@ module RepoTemplater
       @author_name = git_name
       @author_email = git_email
       # Initialize I18n
-      I18n.load_path += Dir["#{File.expand_path('config/locales')}/*.yml"]
+      I18n.load_path += Dir['config/locales/*.yml']
     end
 
     # Get the language of the project
     def lang
-      I18n.locale = @prompt.select(I18n.t(:locale_question)) do |menu|
+      I18n.locale = @prompt.select(I18n.t('question.locale')) do |menu|
         menu.choice name: 'English', value: :en
-        menu.choice name: 'Brasileiro', value: :pt
-        menu.default :en
+        menu.choice name: 'Brasileiro', value: :pt, disabled: '(em breve)'
+        menu.default 'English'
       end
     end
 
@@ -47,20 +47,20 @@ module RepoTemplater
         q.modify   :strip
         q.default  @author_name unless @author_name.empty?
       end
-      @author_email = @prompt.ask(I18n.t(:question_author_email)) do |q|
+      @author_email = @prompt.ask(I18n.t('question.author.email')) do |q|
         q.required true
-        q.validate :email, I18n.t(:error_invalid_email)
+        q.validate :email, I18n.t('error.invalid.email')
         q.default  @author_email unless @author_email.empty?
       end
     end
 
     # Get repository informations
-    def self.repo_metadata
-      @name = @prompt.ask(I18n.t(:question_repo_name)) do |q|
+    def repo_metadata
+      @name = @prompt.ask(I18n.t('question.repo.name')) do |q|
         q.required true
         q.modify   :strip
       end
-      @slug = @prompt.ask(I18n.t(:question_repo_slug)) do |q|
+      @slug = @prompt.ask(I18n.t('question.repo.slug')) do |q|
         q.required true
         q.modify   :strip
       end
