@@ -3,9 +3,28 @@ en:
     locale: What is the language of this project?
     author:
       name: What is your full name?
+      username: What is your GitHub username?
       email: What is your email address?
+      uri: What is your website or profile URL?
     repo:
       name: What is the full capitalized name for this project?
       slug: What is the slug (such as GitHub's name) for this project?
+      description:
+        short: Provide a short description for this project (single-line)
+        long: Provide a long description for this project (multi-line)
+      version: What is the initial version for this project?
+  license_table:
+    header:
+      name: Name
+      spdx: SPDX
+      free: Libre?
+      commercial: Commercial?
+      share_alike: "Same\nLicense?"
+      non_code: Non-Code?
+  help:
+    author_uri: https://your.site.here
+    repo_description: Press Ctrl+D when you're done
   error:
-    invalid_email: Invalid email address
+    invalid:
+      email: Invalid email address
+      version: Version must follow the SemVer format
