@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'tty-exit', '~> 0.1'
   spec.add_dependency 'tty-option', '~> 0.3'
   spec.add_dependency 'tty-prompt', '~> 0.23'
+  spec.add_dependency 'tty-table', '~> 0.12.0'
 
   spec.add_development_dependency 'rake', '~> 13.3'
   spec.add_development_dependency 'rdoc', '~> 6.15'
