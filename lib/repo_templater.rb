@@ -31,7 +31,7 @@ module RepoTemplater
       # Current year
       @year = Time.now.year
       # Initialize I18n
-      I18n.load_path += Dir['config/locales/*.yml']
+      I18n.load_path += Dir["#{File.expand_path('../config/locales', __dir__)}/*.yml"]
     end
 
     # Get the language of the project
