@@ -10,15 +10,15 @@ module RepoTemplater
   class License
     # List of available licenses and their properties
     LICENSES = [
-      ['GNU GPL v3+', 'GPL-3.0-or-later', true, true, true, false, 'a32d3f', 'https://www.gnu.org/licenses/gpl-3.0.en.html'],
-      ['Mozilla Public License 2.0', 'MPL-2.0', true, true, true, false, '00d230', 'https://www.mozilla.org/en-US/MPL/2.0/'],
-      ['MIT License', 'MIT', true, true, false, false, 'aa0000', 'https://opensource.org/license/mit'],
-      ['The Unlicense', 'Unlicense', true, true, false, false, '3e63dd', 'https://unlicense.org/'],
-      ['WTF Public License', 'WTFPL', true, true, false, false, 'f77f00', 'https://www.wtfpl.net/'],
-      ['Hippocratic License v3', 'HL3-CORE', false, false, true, false, 'bc8c3d', 'https://firstdonoharm.dev/version/3/0/core.html'],
-      ['Hippocratic License Full v3', 'HL3-FULL', false, false, true, false, 'bc8c3d', 'https://firstdonoharm.dev/version/3/0/full.html'],
-      ['Creative Commons BY-NC-SA 4.0 International', 'CC-BY-NC-SA-4.0', false, false, true, true, 'd3d3d3', 'https://creativecommons.org/licenses/by-nc-sa/4.0/'],
-      ['Creative Commons CC0 1.0 Universal', 'CC0-1.0', true, false, false, true, 'd3d3d3', 'https://creativecommons.org/publicdomain/zero/1.0/']
+      ['GNU GPL v3+', 'GPL-3.0-or-later', 1, 1, 1, 0, 'a32d3f', 'https://www.gnu.org/licenses/gpl-3.0.en.html'],
+      ['Mozilla Public License 2.0', 'MPL-2.0', 1, 1, 1, 0, '00d230', 'https://www.mozilla.org/en-US/MPL/2.0/'],
+      ['MIT License', 'MIT', 1, 1, 0, 0, 'aa0000', 'https://opensource.org/license/mit'],
+      ['The Unlicense', 'Unlicense', 1, 1, 0, 0, '3e63dd', 'https://unlicense.org/'],
+      ['WTF Public License', 'WTFPL', 1, 1, 0, 0, 'f77f00', 'https://www.wtfpl.net/'],
+      ['Hippocratic License v3', 'HL3-CORE', 0, 0, 1, 0, 'bc8c3d', 'https://firstdonoharm.dev/version/3/0/core.html'],
+      ['Hippocratic License Full v3', 'HL3-FULL', 0, 0, 1, 0, 'bc8c3d', 'https://firstdonoharm.dev/version/3/0/full.html'],
+      ['Creative Commons BY-NC-SA 4.0 International', 'CC-BY-NC-SA-4.0', 0, 0, 1, 1, 'd3d3d3', 'https://creativecommons.org/licenses/by-nc-sa/4.0/'],
+      ['Creative Commons CC0 1.0 Universal', 'CC0-1.0', 1, 0, 0, 1, 'd3d3d3', 'https://creativecommons.org/publicdomain/zero/1.0/']
     ].freeze
 
     attr_accessor :license, :spdx, :uri
@@ -75,7 +75,7 @@ module RepoTemplater
         end
         ren.filter = lambda do |value, row, col|
           if row.positive? && (2..5).include?(col)
-            value ? @pastel.green("\u2713") : @pastel.red("\u2717")
+            value.to_i.positive? ? @pastel.green("\u2713") : @pastel.red("\u2717")
           else
             value
           end
