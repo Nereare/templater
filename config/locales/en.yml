@@ -13,14 +13,25 @@ en:
         short: Provide a short description for this project (single-line)
         long: Provide a long description for this project (multi-line)
       version: What is the initial version for this project?
-  license_table:
-    header:
-      name: Name
-      spdx: SPDX
-      free: Libre?
-      commercial: Commercial?
-      share_alike: "Same\nLicense?"
-      non_code: Non-Code?
+    license:
+      known: Do you know which license you want to use?
+      table:
+        instruction: 'Below are the currently implemented licenses and their main features:'
+        header:
+          name: Name
+          spdx: SPDX
+          free: Libre?
+          commercial: Commercial?
+          share_alike: "Share\nAlike?"
+          non_code: Non-Code?
+      which: Which license do you want to use for this project?
+  choices:
+    yes:
+      short: 'y'
+      long: 'yes'
+    no:
+      short: 'n'
+      long: 'no'
   help:
     author_uri: https://your.site.here
     repo_description: Press Ctrl+D when you're done

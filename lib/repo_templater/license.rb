@@ -10,7 +10,7 @@ module RepoTemplater
   class License
     # List of available licenses and their properties
     LICENSES = [
-      ['GNU GPL v3+', 'GPL-3.0-or-later', 1, 1, 1, 0, 'a32d3f', 'https://www.gnu.org/licenses/gpl-3.0.en.html'],
+      ['GNU General Public License v3+', 'GPL-3.0-or-later', 1, 1, 1, 0, 'a32d3f', 'https://www.gnu.org/licenses/gpl-3.0.en.html'],
       ['Mozilla Public License 2.0', 'MPL-2.0', 1, 1, 1, 0, '00d230', 'https://www.mozilla.org/en-US/MPL/2.0/'],
       ['MIT License', 'MIT', 1, 1, 0, 0, 'aa0000', 'https://opensource.org/license/mit'],
       ['The Unlicense', 'Unlicense', 1, 1, 0, 0, '3e63dd', 'https://unlicense.org/'],
@@ -21,7 +21,7 @@ module RepoTemplater
       ['Creative Commons CC0 1.0 Universal', 'CC0-1.0', 1, 0, 0, 1, 'd3d3d3', 'https://creativecommons.org/publicdomain/zero/1.0/']
     ].freeze
 
-    attr_accessor :license, :spdx, :uri
+    attr_accessor :license, :spdx, :color, :uri, :text
 
     # Select the license and save it to a file
     def initialize(i18n, author_name, year)
@@ -36,20 +36,26 @@ module RepoTemplater
       @license = nil
       @spdx = nil
       @uri = nil
-      @headers = [
-        @i18n.t('license_table.header.name'),
-        @i18n.t('license_table.header.spdx'),
-        @i18n.t('license_table.header.free'),
-        @i18n.t('license_table.header.commercial'),
-        @i18n.t('license_table.header.share_alike'),
-        @i18n.t('license_table.header.non_code')
-      ]
-      # Begin license selection
-      puts licenses_table
-      select
+      @headers = build_headers
+      # License selection
+      license_known?
+      @license, @spdx, @color, @uri = select
+      @text = build_text
     end
 
     private
+
+    # Build the headers for the license table
+    def build_headers
+      [
+        @i18n.t('license.table.header.name'),
+        @i18n.t('license.table.header.spdx'),
+        @i18n.t('license.table.header.free'),
+        @i18n.t('license.table.header.commercial'),
+        @i18n.t('license.table.header.share_alike'),
+        @i18n.t('license.table.header.non_code')
+      ]
+    end
 
     # Create the license table
     def licenses_table
@@ -63,7 +69,6 @@ module RepoTemplater
         ren.resize       = true
         ren.multiline    = true
         ren.border.style = :blue
-        ren.alignments   = [:center] * @headers.size
         ren.filter       = lambda do |value, row, col|
           if row.zero?
             @pastel.bold.on_blue value
@@ -83,7 +88,30 @@ module RepoTemplater
       end
     end
 
+    def license_known?
+      if @prompt.yes?(@i18n.t('question.license.known')) do |q|
+        q.positive %w[y yes]
+        q.negative %w[n no]
+      end
+        puts @i18n.t('license.table.instruction')
+        puts licenses_table
+      end
+    end
+
+    # License selection prompt
     def select
+      license_map = LICENSES.map.with_index do |elem, index|
+        { name: "#{elem[0]} (#{elem[1]})", value: index }
+      end
+      index = @prompt.select('question.license.which') do |menu|
+        menu.cycle   true
+        menu.filter  true
+        menu.choices license_map
+      end
+      yield LICENSES[index][0], LICENSES[index][1], LICENSES[index][6], LICENSES[index][7]
+    end
+
+    def build_text
       nil
     end
   end
